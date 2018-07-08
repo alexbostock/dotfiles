@@ -1,0 +1,55 @@
+# Make indentation work (Copied from https://github.com/mawww/kakoune/wiki/Indentation-and-Tabulation)
+
+hook global InsertChar \t %{ try %{
+	execute-keys -draft h %opt{indentwidth}@
+} }
+
+map global insert <backspace> ⌫
+hook global InsertChar ⌫ %{ try %{
+	execute-keys <backspace>
+	try %{
+		execute-keys -draft hGh <a-k>\A\h+\z<ret> <lt>
+	} catch %{
+		execute-keys <backspace>
+	}
+} }
+
+hook global InsertCompletionShow .* %{
+	try %{
+		execute-keys -draft 'h<a-K>\h<ret>'
+		map window insert <tab> <c-n>
+		map window insert <s-tab> <c-p>
+	}
+}
+
+hook global InsertCompletionHide .* %{
+	unmap window insert <tab> <c-n>
+	unmap window insert <s-tab> <c-p>
+}
+
+# My own indentation rules
+
+# Default to tabs
+set-option global indentwidth 0
+
+# Use 4 spaces for python
+hook global WinSetOption filetype=python %{
+	set-option buffer indentwidth 4
+}
+
+# Use 2 spaces for ruby
+hook global WinSetOption filetype=ruby %{
+	set-option buffer indentwidth 2
+}
+
+# When editing an existing file, detect indentation (https://github.com/alexbostock/detect-indent)
+hook global BufOpenFile .* %{
+	set-option buffer indentwidth %sh{ detect-indent "$kak_hook_param" }
+}
+
+# Highlighters
+
+hook global WinCreate .* %{
+	addhl window number_lines -separator '  '
+	addhl window wrap -word -indent
+}

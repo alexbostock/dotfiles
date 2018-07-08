@@ -1,0 +1,3 @@
+[submodule ".git-prompt/dotfiles-1"]
+	path = .git-prompt/dotfiles-1
+	url = https://github.com/alexbostock/dotfiles-1.git
