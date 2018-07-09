@@ -1,0 +1,12 @@
+[user]
+	name = alexbostock
+	email = alex@alexbostock.co.uk
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[core]
+	excludesfile = /Users/bossie/.gitignore_global
+	editor = kak

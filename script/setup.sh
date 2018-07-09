@@ -8,3 +8,4 @@ cd ~
 ln -s projects/dotfiles/.bash_profile
 ln -s projects/dotfiles/.config
 ln -s projects/dotfiles/.git-prompt
+ln -s projects/dotfiles/.gitconfig
