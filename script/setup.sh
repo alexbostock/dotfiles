@@ -3,6 +3,9 @@
 # cd projects
 # git clone https://github.com/alexbostock/dotfiles.git
 
+# Dependency for git-prompt
+brew install hub
+
 cd ~
 
 ln -s projects/dotfiles/.bash_profile
