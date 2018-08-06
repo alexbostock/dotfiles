@@ -7,6 +7,9 @@ export PATH=/Users/bossie/Library/Android/sdk/platform-tools:/Applications/SWI-P
 
 export ANDROID_HOME=/Users/bossie/Library/Android/sdk
 
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
 alias ruby=/usr/local/Cellar/ruby/2.4.1_1/bin/ruby
 alias sqlite3=/usr/local/opt/sqlite3/bin/sqlite3
 alias vlc="/Users/bossie/Applications/vlc/2.2.0/VLC.app/Contents/MacOS/VLC -I rc"
