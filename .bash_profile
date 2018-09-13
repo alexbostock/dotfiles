@@ -19,6 +19,13 @@ alias vi=vim
 
 alias ls="ls -G"
 
+spell_check_latex() {
+        aspell -t -c "$1"
+        pdflatex "$1"
+}
+
+alias pdflatex=spell_check_latex
+
 export EDITOR=kak
 
 . ~/.git-prompt/dotfiles-1/bashrc
