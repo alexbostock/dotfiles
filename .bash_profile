@@ -1,9 +1,7 @@
-export PATH="/usr/local/sbin:$PATH"
-
 shopt -s autocd
 shopt -s histappend
 
-export PATH=/Users/bossie/Library/Android/sdk/platform-tools:/Applications/SWI-Prolog.app/Contents/MacOS:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/Users/bossie/.vimpkg/bin
+export PATH=/Users/bossie/go/bin:/Users/bossie/Library/Android/sdk/platform-tools:/Applications/SWI-Prolog.app/Contents/MacOS:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/Users/bossie/.vimpkg/bin
 
 export ANDROID_HOME=/Users/bossie/Library/Android/sdk
 
@@ -25,6 +23,8 @@ spell_check_latex() {
 }
 
 alias pdflatex=spell_check_latex
+
+alias bwd='pwd | sed -e "s:/:🥖:g"'
 
 export EDITOR=kak
 
