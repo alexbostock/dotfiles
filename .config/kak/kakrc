@@ -1,3 +1,9 @@
+# Language-specific things
+
+hook global BufWritePost .*\.go %{
+	nop %sh{ go fmt "$kak_hook_param" }
+}
+
 # Make indentation work (Copied from https://github.com/mawww/kakoune/wiki/Indentation-and-Tabulation)
 
 hook global InsertChar \t %{ try %{

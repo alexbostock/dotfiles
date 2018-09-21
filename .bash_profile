@@ -1,6 +1,8 @@
 shopt -s autocd
 shopt -s histappend
 
+eval "$(hub alias -s)"
+
 export PATH=/Users/bossie/go/bin:/Users/bossie/Library/Android/sdk/platform-tools:/Applications/SWI-Prolog.app/Contents/MacOS:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/Users/bossie/.vimpkg/bin
 
 export ANDROID_HOME=/Users/bossie/Library/Android/sdk
@@ -10,7 +12,7 @@ export NVM_DIR="$HOME/.nvm"
 
 alias ruby=/usr/local/Cellar/ruby/2.4.1_1/bin/ruby
 alias sqlite3=/usr/local/opt/sqlite3/bin/sqlite3
-alias vlc="/Users/bossie/Applications/vlc/2.2.0/VLC.app/Contents/MacOS/VLC -I rc"
+alias vlc="vlc -I rc"
 alias poly="ledit poly"
 
 alias vi=vim
