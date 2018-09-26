@@ -1,7 +1,11 @@
 # Language-specific things
 
-hook global BufWritePost .*\.go %{
-	nop %sh{ go fmt "$kak_hook_param" }
+hook global BufWritePre .*\.go %{
+	go-format -use-goimports
+}
+
+hook global WinSetOption filetype=go %{
+	set-option buffer gocode_completions
 }
 
 # Make indentation work (Copied from https://github.com/mawww/kakoune/wiki/Indentation-and-Tabulation)
@@ -55,7 +59,5 @@ hook global BufOpenFile .* %{
 
 # Highlighters
 
-hook global WinCreate .* %{
-	addhl window number_lines -separator '  '
-	addhl window wrap -word -indent
-}
+addhl global/ number-lines -separator '  '
+addhl global/ wrap -word -indent
