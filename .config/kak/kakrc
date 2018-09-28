@@ -52,6 +52,11 @@ hook global WinSetOption filetype=ruby %{
 	set-option buffer indentwidth 2
 }
 
+# Use 2 spaces for yaml
+hook global WinSetOption filetype=yaml %{
+	set-option buffer indentwidth 2
+}
+
 # When editing an existing file, detect indentation (https://github.com/alexbostock/detect-indent)
 hook global BufOpenFile .* %{
 	set-option buffer indentwidth %sh{ detect-indent "$kak_hook_param" }
