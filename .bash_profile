@@ -8,6 +8,8 @@ export ANDROID_HOME=/Users/bossie/Library/Android/sdk
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
+eval $(thefuck --alias)
+
 alias ruby=/usr/local/Cellar/ruby/2.4.1_1/bin/ruby
 alias sqlite3=/usr/local/opt/sqlite3/bin/sqlite3
 alias vlc="vlc -I rc"
