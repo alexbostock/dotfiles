@@ -37,6 +37,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 # OPAM configuration
 . /Users/bossie/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
+eval $(opam env)
+alias metaocaml="ledit metaocaml"
+
 # iTerm tab title (current directory)
 if [ $ITERM_SESSION_ID ]; then
 	export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007";';
