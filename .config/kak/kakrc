@@ -8,6 +8,14 @@ hook global WinSetOption filetype=go %{
 	set-option buffer gocode_completions
 }
 
+hook global WinSetOption filetype=rust %{
+	set window formatcmd 'rustfmt'
+}
+
+hook global BufWritePre .*\.rs %{
+	format
+}
+
 # Make indentation work (Copied from https://github.com/mawww/kakoune/wiki/Indentation-and-Tabulation)
 
 hook global InsertChar \t %{ try %{
@@ -57,6 +65,11 @@ hook global WinSetOption filetype=yaml %{
 	set-option buffer indentwidth 2
 }
 
+# use 4 spaces for rust
+hook global WinSetOption filetype=rust %{
+	set-option buffer indentwidth 4
+}
+
 # When editing an existing file, detect indentation (https://github.com/alexbostock/detect-indent)
 hook global BufOpenFile .* %{
 	set-option buffer indentwidth %sh{ detect-indent "$kak_hook_param" }
@@ -66,3 +79,5 @@ hook global BufOpenFile .* %{
 
 addhl global/ number-lines -separator '  '
 addhl global/ wrap -word -indent
+
+set global ui_options ncurses_assistant=none
